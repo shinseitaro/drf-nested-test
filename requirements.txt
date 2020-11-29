@@ -1,0 +1,4 @@
+Django==2.* 
+djangorestframework==3.11.* # drf-nested-routersがDRF3.11を要求しているので
+drf-writable-nested
+drf-nested-routers

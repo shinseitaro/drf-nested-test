@@ -40,16 +40,22 @@ class AuthorBookViewSet(ModelViewSet):
     serializer_class = BookSerializer
 
     def get_queryset(self):
-        author_pk = self.kwargs.get("author_pk")
+        author_pk = self.kwargs.get("author_name_pk")
         # FK で繋がっているデータは select_related でマージ
         # マージした時に author_pk をauthor_nameとしてマージされる
         queryset = Book.objects.all().select_related("author_name") 
         return queryset.filter(author_name=author_pk)
 
 class LibraryBookViewSet(ReadOnlyModelViewSet):
-    serializer_class = BookSerializer
+    serializer_class = BookLibrarySerializer
     
     def get_queryset(self):
         library_pk = self.kwargs.get("library_pk")
         queryset = Book.objects.all().prefetch_related("library")
         return queryset.filter(library=library_pk)
+
+class AuthorBooksViewSet(ModelViewSet):
+    serializer_class = AuthorSerializer 
+
+    def get_queryset(self):
+        author_pk = self.kwargs.get("library_pk")

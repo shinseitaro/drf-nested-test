@@ -26,13 +26,34 @@ book_router.register(
     basename="book-library" # ユニークなURL名をつける
 )
 
+library_router = nested_routers.NestedSimpleRouter(
+    router, 
+    "libraries", 
+    lookup="library"
+)
+library_router.register(
+    "books", 
+    LibraryBookViewSet, 
+    basename="library-book"
+)
+
+
 author_router = nested_routers.NestedSimpleRouter(
     router, 
     "authors",
     lookup="author_name" # 
 )
 
+author_router.register(
+    "books", 
+    AuthorBookViewSet, 
+    basename="author-book"
+)
+
 urlpatterns = [
     path('', include(router.urls)),
     path('', include(book_router.urls)), #book_routerも追加 
+    path('', include(library_router.urls)), 
+    path('', include(author_router.urls)),     
+
 ]

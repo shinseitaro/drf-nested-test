@@ -2,7 +2,7 @@
 Django, DjangoRestFramework, drf-writable-nested, drf-nested-routers を使って nest されたAPIを作るテスト．
 
 このレポジトリは、
-[Django Advent Calendar 2020 - Qiita](https://qiita.com/advent-calendar/2020/django)7日目の記事用です。
+[Django Advent Calendar 2020 - Qiita](https://qiita.com/advent-calendar/2020/django)7日目と、[PyLadies Japan Advent Calendar 2020](https://adventar.org/calendars/5685) 8日目記事に書いた内容のレポジトリです
 
 
 ## 参照：
